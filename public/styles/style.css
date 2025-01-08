@@ -1,0 +1,449 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Ubuntu&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --light-color-background: #ffffff;
+    --light-color-headerfooter: #ebebeb;
+    --light-color-text: #333333;
+    --light-color-bgslider: rgba(255, 255, 255, 0.9);
+    --dark-color-background: #545454;
+    --dark-color-header-footer: #333333;
+    --dark-color-text: #ffffff;
+    --dark-color-bgslider: rgba(56, 56, 56, 0.9);
+    --font-family-primary: 'Ubuntu';
+}
+body {
+    font-family: var(--font-family-primary);
+}
+/** Header*/
+.header {
+    width: 100%;
+    height: 180px;
+    background-color: var(--light-color-headerfooter);
+    display: flex;
+    justify-content: space-between;
+}
+.header .header__logo{
+    margin-left: 50px;
+    position: relative;
+    transition: opacity 0.5s ease;
+}
+.header .header__logo img {
+    width: 180px;
+    height: 180px;
+}
+.header .header__menu {
+    width: 500px;
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+.header .header__menu .menu-items {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+    align-items: center;
+}
+.header .header__menu .menu-items .menu-item,
+.header .header__menu .menu-items .menu-item a {
+    display: inline-block;
+    color: var(--light-color-text);
+    font-family: var(--font-family-primary);
+    font-size: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    position: relative;
+}
+.header .header__menu .menu-items .menu-item a {
+    text-decoration: none;
+}
+.header .header__menu .menu-items .menu-item::after {
+    opacity: 1;
+    transform: scale(0);
+    transform-origin: center;
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 4px;
+    background-color: var(--light-color-text);
+    transition: opacity 500ms, transform 500ms;
+}
+.header .header__menu .menu-items .menu-item:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+    color: var(--dark-color-text);
+}
+.header .header__menu .menu-items .menu-item:hover::after,
+.header .header__menu .menu-items .menu-item:focus::after {
+    transform: scale(1);
+}
+
+.logo-light,
+.logo-dark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+}
+
+.logo-dark {
+    opacity: 0;
+}
+[data-theme="dark"] .logo-light {
+    opacity: 0;
+}
+
+[data-theme="dark"] .logo-dark {
+    opacity: 1;
+}
+/* Theme Switch Styles */
+.theme-switch-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+}
+
+.theme-switch {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e8e8e8;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.switch-label::before {
+    content: "";
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    left: 3px;
+    bottom: 3px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.theme-switch:checked + .switch-label {
+    background-color: var(--dark-color-background);
+}
+
+.theme-switch:checked + .switch-label::before {
+    transform: translateX(40px);
+}
+
+/* Icons */
+.switch-label::after {
+    content: "";
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    left: 7px;
+    bottom: 7px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffd700"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>');
+    transition: transform 0.3s ease;
+}
+
+.theme-switch:checked + .switch-label::after {
+    transform: translateX(40px);
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffffff"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/></svg>');
+}
+
+/* Dark Mode Styles */
+[data-theme="dark"] {
+    --light-color-background: var(--dark-color-background);
+    --light-color-headerfooter: var(--dark-color-header-footer);
+    --light-color-text: var(--dark-color-text);
+    --light-color-bgslider: var(--dark-color-bgslider);
+}
+[data-theme="dark"] 
+/** EndHeader*/
+
+/** Main*/
+/*? sectionHero*/
+/* Hero section styles */
+.hero {
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--light-color-background);
+}
+
+.hero__container {
+    max-width: 80%px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Slider container */
+.img-slider {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+/* Individual slides */
+.slider__item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider__item.active {
+    opacity: 1;
+}
+
+/* Slide images */
+.slider__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Slide content */
+.img-slider__description {
+    position: relative;
+    z-index: 2;
+    color: var(--light-color-text);
+    text-align: center;
+    padding: 20px;
+    background-color: var(--light-color-bgslider);
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.img-slider__description h1,
+.img-slider__description h2 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: var(--light-color-text);
+}
+
+.description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* List styles */
+.description__items {
+    list-style: none;
+    text-align: left;
+}
+
+.description__item {
+    margin: 10px 0;
+    font-size: 1.1rem;
+    padding-left: 20px;
+    position: relative;
+}
+
+.description__item::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--light-color-text);
+}
+
+/* Navigation buttons */
+.slider-nav {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 3;
+}
+
+.slider-nav button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.slider-nav button.active {
+    background-color: white;
+}
+
+/* Arrow navigation */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-arrow:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.slider-arrow.prev {
+    left: 20px;
+}
+
+.slider-arrow.next {
+    right: 20px;
+}
+/*? EndsectionHero*/
+/*? sectionMV*/
+.mission-vision {
+    width: 100%;
+    background-color: var(--light-color-background);
+    padding: 40px 0;
+}
+
+.mission-vision__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Common styles for mission and vision sections */
+.mission,
+.vision {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background-color: var(--light-color-headerfooter); /* Light purple/blue background */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Mission and vision images */
+.mission__img,
+.vision__img {
+    width: 200px;
+    height: 200px;
+    background-color: #ddd; /* Placeholder color */
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+/* Description containers */
+.mission__desc__container,
+.vision__desc__container {
+    flex: 1;
+}
+
+/* Headings */
+.mission h2,
+.vision h2 {
+    color: var(--light-color-text);
+    font-size: 24px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Description text */
+.mission__description,
+.vision__description {
+    color: var(--light-color-text);
+    line-height: 1.6;
+    font-size: 16px;
+    text-align: justify;
+}
+
+/* Specific layout for vision (image on right) */
+.vision {
+    flex-direction: row-reverse;
+}
+/*? sectionEndMV*/
+/** EndMain*/
+
+/** Footer*/
+footer {
+    background-color: var(--light-color-headerfooter);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.socials {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.socials img {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.socials img:hover {
+    transform: scale(1.1);
+}
+
+.copyright {
+    color: var(--light-color-text);
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Dark mode support */
+[data-theme="dark"] footer {
+    background-color: var(--dark-color-header-footer);
+}
+
+[data-theme="dark"] .copyright {
+    color: var(--dark-color-text);
+}
+/** EndFooter*/
