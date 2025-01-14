@@ -11,11 +11,40 @@
     --light-color-headerfooter: #ebebeb;
     --light-color-text: #333333;
     --light-color-bgslider: rgba(255, 255, 255, 0.9);
+    --light-color-bgsections: #0e4692;
     --dark-color-background: #545454;
     --dark-color-header-footer: #333333;
     --dark-color-text: #ffffff;
     --dark-color-bgslider: rgba(56, 56, 56, 0.9);
     --font-family-primary: 'Ubuntu';
+    /*altenative color palette*/
+    --alt-color-background: #f7efe9;
+    --alt-color-backgroundSocialImgs: #f7efe9;
+    --alt-color-headerfooter: #252627;
+    --alt-color-text: #170312;
+    --alt-color-bgslider: #9EA092;
+    --alt-color-bgslidert: #9EA092BC;
+    --alt-color-bgcards: #4b5b5c;
+    --alt-color-bgsection: #BFB48F;
+    /*alternative dark theme colors*/
+    --alt-darkcolor-background: #1a1a1a; /* Fondo principal oscuro */
+    --alt-darkcolor-headerfooter: #0f0f0f; /* Encabezados y pie de página más oscuros */
+    --alt-darkcolor-text: #eaeaea; /* Texto claro */
+    --alt-darkcolor-bgslider: #3b3f3b; /* Fondo del slider */
+    --alt-darkcolor-bgslidert: #3b3f3bbc; /* Fondo del slider con transparencia */
+    --alt-darkcolor-bgcards: #2a3a3b; /* Fondo de las tarjetas */
+    --alt-darkcolor-bgsection: #4a4a3f; /* Fondo de secciones */
+}
+
+/* Dark Mode Styles */
+[data-theme="dark"] {
+    --alt-color-background: var(--alt-darkcolor-background);
+    --alt-color-headerfooter: var(--alt-darkcolor-headerfooter);
+    --alt-color-text: var(--alt-darkcolor-text);
+    --alt-color-bgslider: var(--alt-darkcolor-bgslider);
+    --alt-color-bgslidert: var(--alt-darkcolor-bgslidert);
+    --alt-color-bgcards: var(--alt-darkcolor-bgcards);
+    --alt-color-bgsection: var(--alt-darkcolor-bgsection);
 }
 body {
     font-family: var(--font-family-primary);
@@ -23,6 +52,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 main{
     flex: 1;
@@ -31,7 +61,7 @@ main{
 .header {
     width: 100%;
     height: 180px;
-    background-color: var(--light-color-headerfooter);
+    background-color: var(--alt-color-headerfooter);
     display: flex;
     justify-content: space-between;
 }
@@ -45,11 +75,12 @@ main{
     height: 180px;
 }
 .header .header__menu {
-    width: 500px;
+    width: 75%;
     margin-right: 50px;
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 30px;
+    justify-content: right;
 }
 .header .header__menu .menu-items {
     display: flex;
@@ -60,7 +91,8 @@ main{
 .header .header__menu .menu-items .menu-item,
 .header .header__menu .menu-items .menu-item a {
     display: inline-block;
-    color: var(--light-color-text);
+    white-space: nowrap ;
+    color: var(--dark-color-text);
     font-family: var(--font-family-primary);
     font-size: 25px;
     font-weight: 500;
@@ -84,7 +116,7 @@ main{
     width: 100%;
     height: 4px;
     border-radius: 4px;
-    background-color: var(--light-color-text);
+    background-color: var(--alt-color-bgsection);
     transition: opacity 500ms, transform 500ms;
 }
 .header .header__menu .menu-items .menu-item:hover {
@@ -105,7 +137,7 @@ main{
 }
 
 .logo-dark {
-    opacity: 0;
+    opacity: 1;
 }
 [data-theme="dark"] .logo-light {
     opacity: 0;
@@ -148,13 +180,13 @@ main{
     left: 3px;
     bottom: 3px;
     border-radius: 50%;
-    background-color: white;
+    background-color: var(--alt-color-background);
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     transition: transform 0.3s ease;
 }
 
 .theme-switch:checked + .switch-label {
-    background-color: var(--dark-color-background);
+    background-color: var(--alt-darkcolor-bgcards);
 }
 
 .theme-switch:checked + .switch-label::before {
@@ -201,26 +233,18 @@ main{
     transition: all 0.3s ease;
 }
 
-/* Dark Mode Styles */
-[data-theme="dark"] {
-    --light-color-background: var(--dark-color-background);
-    --light-color-headerfooter: var(--dark-color-header-footer);
-    --light-color-text: var(--dark-color-text);
-    --light-color-bgslider: var(--dark-color-bgslider);
-}
-[data-theme="dark"] 
 /** EndHeader*/
 
 /** Main*/
 main {
-    background-color: var(--light-color-background);
+    background-color: var(--alt-color-background);
 }
 /*? sectionHero*/
 /* Hero section styles */
 .hero {
     width: 100%;
     overflow: hidden;
-    background-color: var(--light-color-background);
+    background-color: var(--alt-color-background);
 }
 
 .hero__container {
@@ -245,9 +269,7 @@ main {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
 .slider__item.active {
@@ -269,20 +291,44 @@ main {
 .img-slider__description {
     position: relative;
     z-index: 2;
-    color: var(--light-color-text);
+    color: var(--alt-color-text);
     text-align: center;
     padding: 20px;
-    background-color: var(--light-color-bgslider);
+    background-color: var(--alt-color-bgslidert);
     border-radius: 8px;
     max-width: 600px;
+    /* margin: 0 auto; */
+}
+
+.img-slider__description.desc1 {
     margin: 0 auto;
+} 
+
+.desc2 {
+    margin-left: auto; /* Mueve a la derecha */
+    margin-right: 5%; /* Espaciado desde el borde derecho */
+    text-align: right;
+}
+
+.desc3 {
+    margin-right: auto; /* Mueve a la izquierda */
+    margin-left: 5%; /* Espaciado desde el borde izquierdo */
+    text-align: left;
+}
+
+.desc4 {
+    margin: 0 auto; /*Centro (o puedes personalizar su posición) */
 }
 
 .img-slider__description h1,
 .img-slider__description h2 {
     margin-bottom: 20px;
     font-size: 2.5rem;
-    color: var(--light-color-text);
+    color: var(--alt-color-text);
+}
+
+.img-slider__description h1 {
+    font-size: 3rem;
 }
 
 .description {
@@ -291,25 +337,6 @@ main {
     margin-bottom: 20px;
 }
 
-/* List styles */
-.description__items {
-    list-style: none;
-    text-align: left;
-}
-
-.description__item {
-    margin: 10px 0;
-    font-size: 1.1rem;
-    padding-left: 20px;
-    position: relative;
-}
-
-.description__item::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: var(--light-color-text);
-}
 
 /* Navigation buttons */
 .slider-nav {
@@ -333,7 +360,7 @@ main {
 }
 
 .slider-nav button.active {
-    background-color: white;
+    background-color: var(--alt-color-backgroundSocialImgs);
 }
 
 /* Arrow navigation */
@@ -367,14 +394,24 @@ main {
 }
 /*? EndsectionHero*/
 /*? sectionMV*/
-.mission-vision {
+.mission-vision, .services {
     width: 100%;
-    background-color: var(--light-color-background);
+    background-color: var(--alt-color-background);
     padding: 40px 0;
 }
 
-.mission-vision__container {
-    max-width: 1200px;
+.services__container,
+.accountancyServices,
+.auditServices{
+    width: 100%;
+    padding: 20px;
+}
+
+
+.mission-vision__container, 
+.services__container,
+.accountancyServices,
+.auditServices {
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
@@ -384,60 +421,330 @@ main {
 
 /* Common styles for mission and vision sections */
 .mission,
-.vision {
+.vision,
+.accountancy,
+.declarations,
+.counseling,
+.finantialState,
+.internal,
+.open-balances,
+.revalue,
+.registers,
+.tax-audit,
+.specials {
+    width: 80%;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     gap: 30px;
-    background-color: var(--light-color-headerfooter); /* Light purple/blue background */
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.685);
+}
+.mission,
+.vision {
+    background-color: var(--alt-color-bgcards); /* Light purple/blue background */
+}
+
+.accountancy,
+.declarations,
+.counseling,
+.finantialState,
+.internal,
+.open-balances,
+.revalue,
+.registers,
+.tax-audit,
+.specials {
+    background-color: var(--alt-color-bgsection);
+}
+
+.finantialState, 
+.declarations,
+.open-balances,
+.registers,
+.tax-audit {
+    flex-direction: row-reverse;
 }
 
 /* Mission and vision images */
 .mission__img,
-.vision__img {
+.vision__img,
+.accountancy__img,
+.declarations__img,
+.counseling__img,
+.finantialState__img,
+.internal__img,
+.open-balances__img,
+.revalue__img,
+.registers__img,
+.tax-audit__img,
+.specials__img {
     width: 200px;
     height: 200px;
-    background-color: #ddd; /* Placeholder color */
+    background-color: var(--alt-color-backgroundSocialImgs); /* Placeholder color */
     border-radius: 4px;
     object-fit: cover;
 }
 
 /* Description containers */
 .mission__desc__container,
-.vision__desc__container {
+.vision__desc__container,
+.accountancy__desc__container,
+.declarations__desc__container,
+.counseling__desc__container,
+.finantialState__desc__container,
+.internal__desc__container,
+.open-balances__desc__container,
+.revalue__desc__container,
+.registers__desc__container,
+.tax-audit__description,
+.specials__desc__container {
     flex: 1;
 }
 
+
+.accountancyServices,
+.auditServices {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--alt-color-background);
+    width: 100%;
+}
+
 /* Headings */
+.accountancyServices h2,
+.auditServices h2 {
+    color: var(--alt-color-text);
+    font-size: 30px;
+    margin: 0 auto;
+    
+}
+
+/* hr {
+    border: 0; 
+    height: 0; 
+    box-shadow: 0 1px 5px 1px var(--alt-color-bgcards);
+} */
+hr {
+    border: 0;
+    margin: 1.35em auto;
+    max-width: 100%;
+    background-position: 50%;
+    box-sizing: border-box;
+}
+.shine {
+    height: 20px;
+    width: 90%;
+    background-image: radial-gradient(
+        farthest-side at 50% -50%,
+        hsla(0, 0%, 0%, 0.5),
+        hsla(0, 0%, 0%, 0));
+    position: relative;
+    margin: 0 auto;
+}
+
+.shine::before {
+    height: 1px;
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(
+        90deg,
+        hsla(0, 0%, 0%, 0),
+        hsla(0, 0%, 0%, 0.75) 50%,
+        hsla(0, 0%, 0%, 0));
+}
+
 .mission h2,
-.vision h2 {
-    color: var(--light-color-text);
-    font-size: 24px;
+.vision h2,
+.accountancy h3,
+.declarations h3,
+.counseling h3,
+.finantialState h3,
+.internal h3,
+.open-balances h3,
+.revalue h3,
+.registers h3,
+.tax-audit h3,
+.specials h3 {
+    color: var(--alt-color-text);
+    font-size: 25px;
     margin-bottom: 20px;
     position: relative;
 }
 
 /* Description text */
 .mission__description,
-.vision__description {
-    color: var(--light-color-text);
+.vision__description,
+.accountancy__description,
+.declarations__description,
+.counseling__description,
+.finantialState__description,
+.internal__description,
+.open-balances__description,
+.revalue__description,
+.registers__description,
+.tax-audit__description,
+.specials__description {
+    color: var(--alt-color-text);
     line-height: 1.6;
-    font-size: 16px;
+    font-size: 19px;
     text-align: justify;
 }
+.service-page {
+    background-color: var(--alt-color-background);
+}
 
-/* Specific layout for vision (image on right) */
+.account,
+.auditories {
+    margin: 50px 0;
+}
+
 .vision {
     flex-direction: row-reverse;
 }
+.know-more {
+    margin-top: 20px;
+    width: 80%;
+    height: 40px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+.know-more .know-more__link {
+    text-decoration: none;
+    font-family: var(--font-family-primary);
+    color: var(--alt-color-text);
+}
+.know-more__link {
+    display: flex;
+    align-items: center;
+}
+.know-more__link img{
+    width: 20px;
+    height: 20px;
+}
+.know-more__link .know-more__label{
+    font-size: 20px;
+    padding: 10px 0px;
+    margin: 10px;
+}
+
+.history {
+    width: 90%;
+    font-family: var(--font-family-primary);
+    margin: 30px auto;
+    padding: 30px 0;
+}
+.history h1 {
+    font-size: 35px;
+    line-height: 2;
+    font-weight: bold;
+}
+
+.history .history-description {
+    color: var(--alt-color-text);
+    line-height: 1.6;
+    font-size: 23px;
+    text-align: justify;
+}
+.accessory {
+    height: 6px;
+    background-image: radial-gradient(
+        closest-side,
+        hsla(0, 0%, 50%, 1.0),
+        hsla(0, 0%, 50%, 0) 100%);
+    position: relative;
+}
+.accessory:after {
+    position: absolute;
+    top:  50%;
+    left: 50%;
+    display:block;
+    background-color: hsl(0, 0%, 75%);
+    height: 12px;
+    width:  12px;
+    transform: rotate(45deg);
+    margin-top:  -10px;
+    margin-left: -10px;
+    border-radius: 4px 0;
+    border: 4px solid hsla(0, 0%, 100%, 0.35);
+    background-clip: padding-box;
+    box-shadow: -10px 10px 0 hsla(0, 0%, 100%, 0.15), 10px -10px 0 hsla(0, 0%, 100%, 0.15);
+}
+
+/** grid para section contactLocation en services page*/
+.contactLocation {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 100px 150px 150px;
+    gap: 10px;
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+.titleContact {
+    grid-column: 1 / 3; /* Ocupa ambas columnas */
+    grid-row: 1; /* Primera fila */
+    text-align: center; /* Centrar el texto */
+    font-size: 1.5rem; /* Tamaño del texto */
+    margin: 15px 0 0 0; /* Eliminar márgenes predeterminados */
+    padding: 15px; /* Espaciado interno */
+}
+.faceContact {
+    grid-column: 1;
+    grid-row: 2;
+    /* height: 150px; */
+    background-color: var(--alt-color-bgcards);
+}
+.wappContact {
+    grid-column: 1;
+    grid-row: 3;
+    /* height: 150px; */
+    background-color: var(--alt-color-bgsection);
+}
+.mapLocation {
+    grid-column: 2;
+    grid-row: 2 / 4;
+    /* height: 150px; */
+    background-color: var(--alt-color-bgslider);
+}
+.faceContact a,
+.wappContact a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.faceContact img,
+.wappContact img {
+    width: 100px;
+    height: 100px;
+    margin-top: 30px;
+    margin-right: 10px;
+}
+.contactImg p {
+    text-decoration: none;
+    color: var(--alt-color-text);
+    font-size: 1.5rem;
+    margin: 30px 10px 0 10px;
+}
+.map {
+    height: 300px; /* Altura del mapa */
+    width: 80%;   /* Ancho del mapa */
+    margin: 0 auto;
+}
+/** fin grid*/
 /*? sectionEndMV*/
 /** EndMain*/
 
 /** Footer*/
 footer {
-    background-color: var(--light-color-headerfooter);
+    background-color: var(--alt-color-headerfooter);
     padding: 30px 20px;
     display: flex;
     flex-direction: column;
@@ -457,7 +764,7 @@ footer {
     height: 32px;
     transition: transform 0.3s ease;
     cursor: pointer;
-    background-color: #ebebeb;
+    background-color: var(--alt-color-backgroundSocialImgs);
 }
 
 .socials img:nth-child(1) {
@@ -473,23 +780,14 @@ footer {
 }
 
 .copyright {
-    color: var(--light-color-text);
+    color: var(--alt-color-backgroundSocialImgs);
     font-size: 14px;
     text-align: center;
-}
-
-/* Dark mode support */
-[data-theme="dark"] footer {
-    background-color: var(--dark-color-header-footer);
-}
-
-[data-theme="dark"] .copyright {
-    color: var(--dark-color-text);
 }
 /** EndFooter*/
 
 /** Media querys*/
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1100px) {
     .header {
         height: 100px;
         display: flex;
@@ -512,7 +810,7 @@ footer {
         right: -100%;
         width: 250px;
         height: 100vh;
-        background-color: var(--light-color-background);
+        background-color: var(--alt-color-background);
         padding: 80px 20px 20px;
         flex-direction: column;
         transition: 0.3s ease;
@@ -540,26 +838,53 @@ footer {
     .menu-toggle.active span:nth-child(3) {
         transform: translateY(-9px) rotate(-45deg);
     }
-}
 
-@media screen and (max-width: 800px) {
     .header .header__logo img {
         width: 100px;
         height: 100px;
     }
-    .mission, .vision{
+}
+
+@media screen and (max-width: 800px) {
+    
+    .mission, .vision,
+    .accountancy, .declarations,
+    .counseling, .finantialState,
+    .internal,
+    .open-balances,
+    .revalue,
+    .registers,
+    .tax-audit,
+    .specials {
         display: flex;
         flex-direction: column;
     }
     .mission .mission__img{
         order: 2;
     }
+    .img-slider__description {
+        margin: 0 auto;
+    }
+    .slider-arrow {
+        display: none;
+    }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
     .menu-toggle {
         width: 50px;
     }
-    .mission__description, .vision__description {
+    .mission__description, 
+    .vision__description,
+    .accountancy__description,
+    .declarations__description,
+    .counseling__description,
+    .finantialState__description,
+    .internal__description,
+    .open-balances__description,
+    .revalue__description,
+    .registers__description,
+    .tax-audit__description,
+    .specials__description {
         overflow: hidden;
         display: -webkit-box;
         line-clamp: 5;
@@ -570,7 +895,18 @@ footer {
         max-height: 7.5em; /* Altura aproximada según el número de líneas */
         transition: max-height 0.3s ease;
     }
-    .mission__description.expanded,  .vision__description.expanded{
+    .mission__description.expanded,  
+    .vision__description.expanded,
+    .accountancy__description.expanded,
+    .declarations__description.expanded,
+    .counseling__description.expanded,
+    .finantialState__description.expanded,
+    .internal__description.expanded,
+    .open-balances__description.expanded,
+    .revalue__description.expanded,
+    .registers__description.expanded,
+    .tax-audit__description.expanded,
+    .specials__description.expanded {
         line-clamp: unset;
         -webkit-line-clamp: unset; /* Elimina el límite de líneas */
         max-height: none; /* Permite mostrar todo el texto */

@@ -3,6 +3,10 @@ function loadTheme() {
     if (savedTheme) {
         document.documentElement.setAttribute('data-theme', savedTheme);
     }
+    let themePreference = localStorage.getItem('theme');
+    if(themePreference && themePreference === 'dark'){
+        document.querySelector('.theme-switch').checked = true;
+    }
 }
 
   // Función para alternar el tema
@@ -40,12 +44,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.querySelector('.mission').addEventListener('click', function () {
-    const mtextElement = this.querySelector('.mission__description');
-    mtextElement.classList.toggle('expanded');
-});
-
-document.querySelector('.vision').addEventListener('click', function () {
-    const vtextElement = this.querySelector('.vision__description');
-    vtextElement.classList.toggle('expanded');
-});

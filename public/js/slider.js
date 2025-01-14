@@ -11,7 +11,7 @@ class ImageSlider {
         this.navButtons = this.createNavButtons();
         this.currentSlide = 0;
         this.autoplayInterval = null;
-        this.autoplayDelay = 5000; // 5 seconds
+        this.autoplayDelay = 6000; // 6 seconds
 
         // Initialize
         this.initializeSlider();
