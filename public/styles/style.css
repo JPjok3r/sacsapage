@@ -22,6 +22,7 @@
     --alt-color-backgroundSocialImgs: #f7efe9;
     --alt-color-headerfooter: #252627;
     --alt-color-text: #170312;
+    --alt-color-textMenuToggle: #f7efe9;
     --alt-color-bgslider: #9EA092;
     --alt-color-bgslidert: #9EA092BC;
     --alt-color-bgcards: #4b5b5c;
@@ -92,7 +93,7 @@ main{
 .header .header__menu .menu-items .menu-item a {
     display: inline-block;
     white-space: nowrap ;
-    color: var(--dark-color-text);
+    color: var(--alt-color-textMenuToggle);
     font-family: var(--font-family-primary);
     font-size: 25px;
     font-weight: 500;
@@ -121,7 +122,7 @@ main{
 }
 .header .header__menu .menu-items .menu-item:hover {
     background-color: rgba(0, 0, 0, 0.08);
-    color: var(--dark-color-text);
+    color: var(--alt-darkcolor-text);
 }
 .header .header__menu .menu-items .menu-item:hover::after,
 .header .header__menu .menu-items .menu-item:focus::after {
@@ -229,7 +230,7 @@ main{
     display: block;
     width: 100%;
     height: 3px;
-    background-color: var(--light-color-text);
+    background-color: var(--alt-color-textMenuToggle);
     transition: all 0.3s ease;
 }
 
@@ -707,11 +708,14 @@ hr {
     /* height: 150px; */
     background-color: var(--alt-color-bgsection);
 }
-.mapLocation {
+.map {
     grid-column: 2;
     grid-row: 2 / 4;
     /* height: 150px; */
     background-color: var(--alt-color-bgslider);
+    height: 300px; /* Altura del mapa */
+    width: 80%;   /* Ancho del mapa */
+    margin: 0 auto;
 }
 .faceContact a,
 .wappContact a {
@@ -732,11 +736,6 @@ hr {
     color: var(--alt-color-text);
     font-size: 1.5rem;
     margin: 30px 10px 0 10px;
-}
-.map {
-    height: 300px; /* Altura del mapa */
-    width: 80%;   /* Ancho del mapa */
-    margin: 0 auto;
 }
 /** fin grid*/
 /*? sectionEndMV*/
@@ -810,7 +809,7 @@ footer {
         right: -100%;
         width: 250px;
         height: 100vh;
-        background-color: var(--alt-color-background);
+        background-color: var(--alt-color-headerfooter);
         padding: 80px 20px 20px;
         flex-direction: column;
         transition: 0.3s ease;
@@ -824,6 +823,10 @@ footer {
     
     .menu-item {
         margin: 15px 0;
+    }
+
+    .menu-item a{
+        color: var(--alt-color-text);
     }
     
       /* Hamburger animation */
@@ -842,6 +845,37 @@ footer {
     .header .header__logo img {
         width: 100px;
         height: 100px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .contactLocation {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px 150px 150px 350px;
+        width: 100%;
+        margin: 0 auto;
+        padding-bottom: 30px;
+    }
+    .titleContact {
+        grid-row: 1; /* Primera fila */
+        text-align: center; /* Centrar el texto */
+        font-size: 1.5rem; /* Tamaño del texto */
+        margin: 15px 0 0 0; /* Eliminar márgenes predeterminados */
+        padding: 15px; /* Espaciado interno */
+    }
+    .faceContact {
+        grid-row: 2;
+        background-color: var(--alt-color-bgcards);
+    }
+    .wappContact {
+        grid-row: 3;
+        background-color: var(--alt-color-bgsection);
+    }
+    .map {
+        grid-column: 1;
+        grid-row: 4;
+        background-color: var(--alt-color-bgslider);
     }
 }
 
