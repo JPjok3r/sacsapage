@@ -7,17 +7,8 @@
 }
 
 :root {
-    --light-color-background: #ffffff;
-    --light-color-headerfooter: #ebebeb;
-    --light-color-text: #333333;
-    --light-color-bgslider: rgba(255, 255, 255, 0.9);
-    --light-color-bgsections: #0e4692;
-    --dark-color-background: #545454;
-    --dark-color-header-footer: #333333;
-    --dark-color-text: #ffffff;
-    --dark-color-bgslider: rgba(56, 56, 56, 0.9);
     --font-family-primary: 'Ubuntu';
-    /*altenative color palette*/
+    
     --alt-color-background: #f7efe9;
     --alt-color-backgroundSocialImgs: #f7efe9;
     --alt-color-headerfooter: #252627;
@@ -27,17 +18,16 @@
     --alt-color-bgslidert: #9EA092BC;
     --alt-color-bgcards: #4b5b5c;
     --alt-color-bgsection: #BFB48F;
-    /*alternative dark theme colors*/
-    --alt-darkcolor-background: #1a1a1a; /* Fondo principal oscuro */
-    --alt-darkcolor-headerfooter: #0f0f0f; /* Encabezados y pie de página más oscuros */
-    --alt-darkcolor-text: #eaeaea; /* Texto claro */
-    --alt-darkcolor-bgslider: #3b3f3b; /* Fondo del slider */
-    --alt-darkcolor-bgslidert: #3b3f3bbc; /* Fondo del slider con transparencia */
-    --alt-darkcolor-bgcards: #2a3a3b; /* Fondo de las tarjetas */
-    --alt-darkcolor-bgsection: #4a4a3f; /* Fondo de secciones */
+    
+    --alt-darkcolor-background: #1a1a1a;
+    --alt-darkcolor-headerfooter: #0f0f0f;
+    --alt-darkcolor-text: #eaeaea;
+    --alt-darkcolor-bgslider: #3b3f3b;
+    --alt-darkcolor-bgslidert: #3b3f3bbc;
+    --alt-darkcolor-bgcards: #2a3a3b; 
+    --alt-darkcolor-bgsection: #4a4a3f;
 }
 
-/* Dark Mode Styles */
 [data-theme="dark"] {
     --alt-color-background: var(--alt-darkcolor-background);
     --alt-color-headerfooter: var(--alt-darkcolor-headerfooter);
@@ -147,7 +137,7 @@ main{
 [data-theme="dark"] .logo-dark {
     opacity: 1;
 }
-/* Theme Switch Styles */
+
 .theme-switch-wrapper {
     position: relative;
     display: inline-block;
@@ -194,7 +184,6 @@ main{
     transform: translateX(40px);
 }
 
-/* Icons */
 .switch-label::after {
     content: "";
     position: absolute;
@@ -241,7 +230,6 @@ main {
     background-color: var(--alt-color-background);
 }
 /*? sectionHero*/
-/* Hero section styles */
 .hero {
     width: 100%;
     overflow: hidden;
@@ -254,7 +242,6 @@ main {
     padding: 40px 20px;
 }
 
-/* Slider container */
 .img-slider {
     position: relative;
     width: 100%;
@@ -262,7 +249,6 @@ main {
     overflow: hidden;
 }
 
-/* Individual slides */
 .slider__item {
     position: absolute;
     width: 100%;
@@ -277,7 +263,6 @@ main {
     opacity: 1;
 }
 
-/* Slide images */
 .slider__item img {
     width: 100%;
     height: 100%;
@@ -288,7 +273,6 @@ main {
     z-index: 1;
 }
 
-/* Slide content */
 .img-slider__description {
     position: relative;
     z-index: 2;
@@ -298,7 +282,6 @@ main {
     background-color: var(--alt-color-bgslidert);
     border-radius: 8px;
     max-width: 600px;
-    /* margin: 0 auto; */
 }
 
 .img-slider__description.desc1 {
@@ -306,19 +289,19 @@ main {
 } 
 
 .desc2 {
-    margin-left: auto; /* Mueve a la derecha */
-    margin-right: 5%; /* Espaciado desde el borde derecho */
+    margin-left: auto;
+    margin-right: 5%; 
     text-align: right;
 }
 
 .desc3 {
-    margin-right: auto; /* Mueve a la izquierda */
-    margin-left: 5%; /* Espaciado desde el borde izquierdo */
+    margin-right: auto;
+    margin-left: 5%;
     text-align: left;
 }
 
 .desc4 {
-    margin: 0 auto; /*Centro (o puedes personalizar su posición) */
+    margin: 0 auto;
 }
 
 .img-slider__description h1,
@@ -338,8 +321,6 @@ main {
     margin-bottom: 20px;
 }
 
-
-/* Navigation buttons */
 .slider-nav {
     position: absolute;
     bottom: 20px;
@@ -364,7 +345,6 @@ main {
     background-color: var(--alt-color-backgroundSocialImgs);
 }
 
-/* Arrow navigation */
 .slider-arrow {
     position: absolute;
     top: 50%;
@@ -420,7 +400,6 @@ main {
     gap: 40px;
 }
 
-/* Common styles for mission and vision sections */
 .mission,
 .vision,
 .accountancy,
@@ -444,7 +423,7 @@ main {
 }
 .mission,
 .vision {
-    background-color: var(--alt-color-bgcards); /* Light purple/blue background */
+    background-color: var(--alt-color-bgcards);
 }
 
 .accountancy,
@@ -468,7 +447,6 @@ main {
     flex-direction: row-reverse;
 }
 
-/* Mission and vision images */
 .mission__img,
 .vision__img,
 .accountancy__img,
@@ -483,12 +461,11 @@ main {
 .specials__img {
     width: 200px;
     height: 200px;
-    background-color: var(--alt-color-backgroundSocialImgs); /* Placeholder color */
+    background-color: var(--alt-color-backgroundSocialImgs);
     border-radius: 4px;
     object-fit: cover;
 }
 
-/* Description containers */
 .mission__desc__container,
 .vision__desc__container,
 .accountancy__desc__container,
@@ -504,7 +481,6 @@ main {
     flex: 1;
 }
 
-
 .accountancyServices,
 .auditServices {
     display: flex;
@@ -513,7 +489,6 @@ main {
     width: 100%;
 }
 
-/* Headings */
 .accountancyServices h2,
 .auditServices h2 {
     color: var(--alt-color-text);
@@ -522,11 +497,6 @@ main {
     
 }
 
-/* hr {
-    border: 0; 
-    height: 0; 
-    box-shadow: 0 1px 5px 1px var(--alt-color-bgcards);
-} */
 hr {
     border: 0;
     margin: 1.35em auto;
@@ -576,7 +546,6 @@ hr {
     position: relative;
 }
 
-/* Description text */
 .mission__description,
 .vision__description,
 .accountancy__description,
@@ -645,6 +614,7 @@ hr {
     font-size: 35px;
     line-height: 2;
     font-weight: bold;
+    color: var(--alt-color-text);
 }
 
 .history .history-description {
@@ -689,32 +659,44 @@ hr {
     padding-bottom: 30px;
 }
 .titleContact {
-    grid-column: 1 / 3; /* Ocupa ambas columnas */
-    grid-row: 1; /* Primera fila */
-    text-align: center; /* Centrar el texto */
-    font-size: 1.5rem; /* Tamaño del texto */
-    margin: 15px 0 0 0; /* Eliminar márgenes predeterminados */
-    padding: 15px; /* Espaciado interno */
+    grid-column: 1 / 3;
+    grid-row: 1;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 15px 0 0 0;
+    padding: 15px;
+    color: var(--alt-color-text);
 }
 .faceContact {
     grid-column: 1;
     grid-row: 2;
-    /* height: 150px; */
     background-color: var(--alt-color-bgcards);
 }
 .wappContact {
     grid-column: 1;
     grid-row: 3;
-    /* height: 150px; */
     background-color: var(--alt-color-bgsection);
+}
+.wappContact a{
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.wapp-logo-container, 
+.wapp-qr-container {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 .map {
     grid-column: 2;
     grid-row: 2 / 4;
-    /* height: 150px; */
     background-color: var(--alt-color-bgslider);
-    height: 300px; /* Altura del mapa */
-    width: 80%;   /* Ancho del mapa */
+    height: 300px;
+    width: 80%;   
     margin: 0 auto;
 }
 .faceContact a,
@@ -731,11 +713,17 @@ hr {
     margin-top: 30px;
     margin-right: 10px;
 }
+.wappContact img {
+    margin-top: 0;
+}
 .contactImg p {
     text-decoration: none;
     color: var(--alt-color-text);
     font-size: 1.5rem;
     margin: 30px 10px 0 10px;
+}
+.contactImg.wapp p{
+    margin-top: 15px;
 }
 /** fin grid*/
 /*? sectionEndMV*/
@@ -829,7 +817,6 @@ footer {
         color: var(--alt-color-text);
     }
     
-      /* Hamburger animation */
     .menu-toggle.active span:nth-child(1) {
         transform: translateY(9px) rotate(45deg);
     }
@@ -860,11 +847,11 @@ footer {
         padding-bottom: 30px;
     }
     .titleContact {
-        grid-row: 1; /* Primera fila */
-        text-align: center; /* Centrar el texto */
-        font-size: 1.5rem; /* Tamaño del texto */
-        margin: 15px 0 0 0; /* Eliminar márgenes predeterminados */
-        padding: 15px; /* Espaciado interno */
+        grid-row: 1;
+        text-align: center; 
+        font-size: 1.5rem; 
+        margin: 15px 0 0 0; 
+        padding: 15px; 
     }
     .faceContact {
         grid-row: 2;
@@ -893,11 +880,6 @@ footer {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-    }
-    .wapp-contact-separator {
-        height: 10px;
-        border: 0;
-        box-shadow: 0 10px 10px -10px var(--alt-color-text) inset;
     }
     .map {
         grid-column: 1;
@@ -949,11 +931,11 @@ footer {
         overflow: hidden;
         display: -webkit-box;
         line-clamp: 5;
-        -webkit-line-clamp: 5; /* Número de líneas visibles */
+        -webkit-line-clamp: 5;
         -webkit-box-orient: vertical;
         text-overflow: ellipsis;
         white-space: normal;
-        max-height: 7.5em; /* Altura aproximada según el número de líneas */
+        max-height: 7.5em;
         transition: max-height 0.3s ease;
     }
     .mission__description.expanded,  
@@ -969,7 +951,7 @@ footer {
     .tax-audit__description.expanded,
     .specials__description.expanded {
         line-clamp: unset;
-        -webkit-line-clamp: unset; /* Elimina el límite de líneas */
-        max-height: none; /* Permite mostrar todo el texto */
+        -webkit-line-clamp: unset;
+        max-height: none;
     }
 }
