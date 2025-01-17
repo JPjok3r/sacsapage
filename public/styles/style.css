@@ -854,6 +854,8 @@ footer {
         grid-template-columns: 100%;
         grid-template-rows: 100px 150px 400px 350px;
         width: 100%;
+        row-gap: 10px;
+        column-gap: 0;
         margin: 0 auto;
         padding-bottom: 30px;
     }
